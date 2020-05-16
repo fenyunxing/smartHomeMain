@@ -2,20 +2,22 @@ package com.example.smarthomemain;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
+
+import com.blesdk.executor.handler.BLEManager;
+import com.example.mybuletoothble.BuleToothMainActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class InterfaceActivity extends AppCompatActivity {
     private GridView mGridView;   //MyGridView
     //定义图标数组
     private int[] imageRes = { R.drawable.buletooth, R.drawable.curtain,
@@ -31,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
         //this.requestWindowFeature(Window.FEATURE_NO_TITLE);  //设置Activity标题不显示
        // this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);  //设置全屏显示
         setContentView(R.layout.mian_interface);
+        view_init();
+
+    }
+
+    private void view_init() {
         mGridView = (GridView) findViewById(R.id.MyGridView);
         List<HashMap<String, Object>> data = new ArrayList<HashMap<String, Object>>();
         int length = itemName.length;
@@ -41,18 +48,54 @@ public class MainActivity extends AppCompatActivity {
             data.add(map);
         }
         //为itme.xml添加适配器
-        SimpleAdapter simpleAdapter = new SimpleAdapter(MainActivity.this,
+        SimpleAdapter simpleAdapter = new SimpleAdapter(InterfaceActivity.this,
                 data, R.layout.item, new String[] { "ItemImageView","ItemTextView" }, new int[] { R.id.ItemImageView,R.id.ItemTextView });
         mGridView.setAdapter(simpleAdapter);
         //为mGridView添加点击事件监听器
         mGridView.setOnItemClickListener(new GridViewItemOnClick());
     }
+
     //定义点击事件监听器
     public class GridViewItemOnClick implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
-            Toast.makeText(getApplicationContext(), position + "",
-                    Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), position + "",
+//                    Toast.LENGTH_SHORT).show();
+            switch (position) {
+                case 0:
+                    Log.i("item点击测试: ","item1");
+                    startActivity(new Intent(InterfaceActivity.this, BuleToothMainActivity.class));
+                    break;
+                case 1:
+                    Log.i("item点击测试: ","item2");
+                   // String sendtext="hello";
+                   // BLEManager.getInstance().send(sendtext.getBytes());
+                    break;
+                case 2:
+                    Log.i("item点击测试: ","item3");
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    break;
+                case 11:
+                    break;
+                default:
+                    break;
+
+            }
         }
     }
 }

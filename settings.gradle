@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':blesdk', ':MyBuleToothBle'
 rootProject.name='smartHomeMain'
