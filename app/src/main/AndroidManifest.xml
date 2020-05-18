@@ -22,6 +22,7 @@
         </activity>
         <activity android:name="com.example.mybuletoothble.BuleToothMainActivity"></activity>
         <activity android:name="com.example.mybuletoothble.ScanBleActivity"></activity>
+        <activity android:name="com.example.a12053.voicectroller.VoiceCtrollerMainActivity"></activity>
     </application>
 
 </manifest>

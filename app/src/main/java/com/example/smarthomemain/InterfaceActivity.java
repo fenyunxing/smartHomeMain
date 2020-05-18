@@ -11,6 +11,7 @@ import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
 import com.blesdk.executor.handler.BLEManager;
+import com.example.a12053.voicectroller.VoiceCtrollerMainActivity;
 import com.example.mybuletoothble.BuleToothMainActivity;
 
 import java.util.ArrayList;
@@ -89,6 +90,8 @@ public class InterfaceActivity extends AppCompatActivity {
                 case 9:
                     break;
                 case 10:
+                    //跳转到语音控制界面
+                    startActivity(new Intent(InterfaceActivity.this, VoiceCtrollerMainActivity.class));
                     break;
                 case 11:
                     break;
