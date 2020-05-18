@@ -136,48 +136,5 @@ public class VoiceCtrollerMainActivity extends Activity implements OnClickListen
         }
     }
 }
-//import android.os.Bundle;
-//import android.support.v7.app.AppCompatActivity;
-//import android.view.View;
-//import android.widget.Button;
-//import android.widget.TextView;
-//
-//import com.iflytek.cloud.SpeechUtility;
-//import com.iflytek.cloud.ui.RecognizerDialog;
-//
-//public class VoiceCtrollerMainActivity extends AppCompatActivity {
-//
-//    private TextView mTvcontent;
-//    private Button mBtnStart;
-////    private Button mBtnRead;
-//
-//    private String text;
-//    private RecognizerDialog isrDialog;
-//
-//
-//    // @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        SpeechUtility.createUtility(VoiceCtrollerMainActivity.this,"appid="+ "5b932d09");
-//        setContentView(R.layout.activity_voicectroller);
-//
-//        mTvcontent = (TextView) findViewById(R.id.tv_content);
-//        mBtnStart = (Button) findViewById(R.id.btn_start);
-////        mBtnRead = (Button) findViewById(R.id.btn_read);
-//        mBtnStart.setOnClickListener((View.OnClickListener) new OnClick());
-//
-//    }
-//
-//    class OnClick implements View.OnClickListener {
-//
-//        @Override
-//        public void onClick(View v) {
-//            switch (v.getId()){
-//                case R.id.btn_start:
-//
-//            }
-//        }
-//    }
-//
-//}
+
 

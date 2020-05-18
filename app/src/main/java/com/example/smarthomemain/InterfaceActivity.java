@@ -11,6 +11,7 @@ import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
 import com.blesdk.executor.handler.BLEManager;
+import com.example.a11630.face_new.FaceDoorMainActivity;
 import com.example.a12053.voicectroller.VoiceCtrollerMainActivity;
 import com.example.mybuletoothble.BuleToothMainActivity;
 
@@ -74,6 +75,7 @@ public class InterfaceActivity extends AppCompatActivity {
                     break;
                 case 2:
                     Log.i("item点击测试: ","item3");
+                    startActivity(new Intent(InterfaceActivity.this, FaceDoorMainActivity.class));
                     break;
                 case 3:
                     break;

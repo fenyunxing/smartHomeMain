@@ -23,6 +23,11 @@
         <activity android:name="com.example.mybuletoothble.BuleToothMainActivity"></activity>
         <activity android:name="com.example.mybuletoothble.ScanBleActivity"></activity>
         <activity android:name="com.example.a12053.voicectroller.VoiceCtrollerMainActivity"></activity>
+        <activity android:name="com.example.a11630.face_new.ClockInActivity"></activity>
+        <activity android:name="com.example.a11630.face_new.DeleteActivity"></activity>
+        <activity android:name="com.example.a11630.face_new.FaceDoorMainActivity"></activity>
+        <activity android:name="com.example.a11630.face_new.InquireActivity"></activity>
+        <activity android:name="com.example.a11630.face_new.loggingDataActivity"></activity>
     </application>
 
 </manifest>
