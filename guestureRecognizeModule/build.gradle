@@ -31,5 +31,5 @@ dependencies {
     implementation files('libs/slf4j-simple-1.7.25.jar')
     implementation files('libs/aip-java-sdk-4.3.2.jar')
     implementation files('libs/gson-2.8.2.jar')
-    compile project(path: ':blesdk')
+    implementation project(path: ':blesdk')
 }
