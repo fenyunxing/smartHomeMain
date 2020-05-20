@@ -29,4 +29,5 @@ dependencies {
     implementation files('libs/json-20160810.jar')
     implementation files('libs/log4j-1.2.17.jar')
     implementation files('libs/gson-2.8.2.jar')
+    implementation project(path: ':blesdk')
 }

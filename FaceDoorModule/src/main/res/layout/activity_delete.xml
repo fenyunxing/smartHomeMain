@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/aaa"
+    android:background="@drawable/delete_bg"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="用户名："
-            android:textColor="@color/btn_text_color"
+            android:textColor="@color/text_color"
             android:textSize="20sp" />
 
         <EditText
@@ -27,8 +27,8 @@
             android:layout_marginRight="20dp"
             android:hint="请输入昵称仅由字母数字构成"
             android:textColorHint="#55DDDD"
+            android:textColor="@color/btn_text_color"
             android:background="@drawable/shape"
-
             android:maxLines="1"
             android:textSize="16sp" />
     </LinearLayout>

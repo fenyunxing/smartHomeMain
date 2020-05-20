@@ -28,6 +28,7 @@
         <activity android:name="com.example.a11630.face_new.FaceDoorMainActivity"></activity>
         <activity android:name="com.example.a11630.face_new.InquireActivity"></activity>
         <activity android:name="com.example.a11630.face_new.loggingDataActivity"></activity>
+        <activity android:name="com.example.mygesturerecognizetest.GuestureRecongnizeMainActivity"></activity>
     </application>
 
 </manifest>

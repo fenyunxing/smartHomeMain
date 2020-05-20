@@ -1,9 +1,8 @@
-package com.example.a11630.face_new;
+package com.example.mygesturerecognizetest;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -36,13 +35,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 
-public class ClockInActivity extends AppCompatActivity implements View.OnClickListener {
+import utils.Base64Util;
+
+import utils.HttpUtil;
+
+public class GuestureRecongnizeMainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String ImagePath = null;
     private Uri imageUri,imageUri_display;
@@ -58,7 +59,7 @@ public class ClockInActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clockin);
+        setContentView(R.layout.activity_main_guesturerecognize);
         btn_pai = (Button) findViewById(R.id.take_a_picture);
         btn_pai.setOnClickListener(this);
         iv_picture = (ImageView) findViewById(R.id.picture);
@@ -85,7 +86,7 @@ public class ClockInActivity extends AppCompatActivity implements View.OnClickLi
             }
             imageUri = Uri.fromFile(outputImage);              //获取Uri
 
-         //   imageUri_display= FileProvider.getUriForFile(ClockInActivity.this,"com.example.a11630.face_new.fileprovider",outputImage);
+            //   imageUri_display= FileProvider.getUriForFile(ClockInActivity.this,"com.example.a11630.face_new.fileprovider",outputImage);
 
             ImagePath = outputImage.getAbsolutePath();
             Log.i("拍照图片路径", ImagePath);         //，是传递你要保存的图片的路径，打开相机后，点击拍照按钮，系统就会根据你提供的地址进行保存图片
@@ -113,17 +114,17 @@ public class ClockInActivity extends AppCompatActivity implements View.OnClickLi
                 cursor.close();
                 Log.i("图片路径", ImagePath);
                 bp = getimage(ImagePath);
-              //  iv_picture.setImageBitmap(bp);
+                //  iv_picture.setImageBitmap(bp);
                 runthreaad();      //开启线程，传入图片
             }
         } else if (requestCode == CAMERA) {
 
             bp = getimage(ImagePath);
-         //  iv_picture.setImageBitmap(bp);
+            //  iv_picture.setImageBitmap(bp);
             runthreaad();  //开启线程，传入图片
         }
     }
-  //  Bitmap bitmap_1=null;
+    //  Bitmap bitmap_1=null;
     private Bitmap getimage(String srcPath) {
         BitmapFactory.Options newOpts = new BitmapFactory.Options();
         //开始读入图片，此时把options.inJustDecodeBounds 设回true了
@@ -150,9 +151,9 @@ public class ClockInActivity extends AppCompatActivity implements View.OnClickLi
 
         //重新读入图片，注意此时已经把options.inJustDecodeBounds 设回false了
         bitmap = BitmapFactory.decodeFile(srcPath, newOpts);
-      //  Bitmap bitmap_1=bitmap.copy(Bitmap.Config.ARGB_8888, true);
+        //  Bitmap bitmap_1=bitmap.copy(Bitmap.Config.ARGB_8888, true);
 
-           return compressImage(bitmap);
+        return compressImage(bitmap);
 
     }
 
@@ -182,74 +183,46 @@ public class ClockInActivity extends AppCompatActivity implements View.OnClickLi
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String url = "https://aip.baidubce.com/rest/2.0/face/v3/search";
+                String url = "https://aip.baidubce.com/rest/2.0/image-classify/v1/gesture";
                 try {
                     byte[] bytes1 = getBytesByBitmap(bp);
                     //    byte[] bytes1 = FileUtil.readFileByBytes(ImagePath);
                     String image1 = Base64Util.encode(bytes1);
+                    String imgParam = URLEncoder.encode(image1, "UTF-8");
+                    String param = "image=" + imgParam;
 
-                    Map<String, Object> map = new HashMap<>();
-                    map.put("image", image1);
-                    map.put("liveness_control", "NORMAL");
-                    map.put("group_id_list", "face");
-                    map.put("image_type", "BASE64");
-                    map.put("quality_control", "LOW");
-
-                    String param = GsonUtils.toJson(map);
 
                     // 注意这里仅为了简化编码每一次请求都去获取access_token，线上环境access_token有过期时间， 客户端可自行缓存，过期后重新获取。
-                 //   String accessToken = "24.470560ecfc8ded10d622b3dd4e258f34.2592000.1563086633.282335-15236904";
+                    //   String accessToken = "24.470560ecfc8ded10d622b3dd4e258f34.2592000.1563086633.282335-15236904";
 
-                    String clientId = "HuTNjUbYeHuOBibawwwDHnwN";
+                    String clientId = "hQ1LVEQBNcyCGQg6YGcAZZgW";
                     // 官网获取的 Secret Key 更新为你注册的
-                    String clientSecret = "c56Xi5qXmzmNcWxiBH6WdObZsbAGoPVp";
+                    String clientSecret = "U1sfOM9fUKTNAxEvNw2naW4m6h2lfqKV";
                     String accessToken = getAuth(clientId, clientSecret);
-                    Log.i("tokences",accessToken);
+                    //Log.i("tokences",accessToken); "application/x-www-form-urlencoded"
 
-                    result = HttpUtil.post(url, accessToken, "application/json", param);
-                    System.out.println("hehehe:" + result);
+                    result = HttpUtil.post(url, accessToken, param);
+                   // System.out.println("hehehe:" + result);
+                    Log.i("结果返回",result);
 
+//
+                   Gson gson = new Gson();                      //新建GSON
+                   JsonRootBean Result_bean = gson.fromJson(result, JsonRootBean.class); //GSON与我的工具类绑定
+                   Result res=new Result();
+                   res=Result_bean.getResult().get(0);
+                   if(res.getProbability()>0.612){
+                       Log.i("josn解析结果",res.getClassname());
+                       Looper.prepare(); //线程内部开线程需要用Looper环包裹
+                       Toast.makeText(GuestureRecongnizeMainActivity.this, res.getClassname(), Toast.LENGTH_SHORT).show();
+                       BLEManager.getInstance().send(res.getClassname().getBytes()); //把识别结果送入蓝牙发送
+                       Looper.loop();
+                   } else{
+                       Log.i("josn解析Tag","识别错误");
+                       Looper.prepare();
+                       Toast.makeText(GuestureRecongnizeMainActivity.this, "识别错误", Toast.LENGTH_SHORT).show();
+                       Looper.loop();
+                   }
 
-                    Gson gson = new Gson();                      //新建GSON
-                    Search_result_bean Result_bean = gson.fromJson(result, Search_result_bean.class); //GSON与我的工具类绑定
-                  //  System.out.println("哈哈哈哈哈哈哈哈" + Result_bean.getError_code());
-                    int Error_code = Result_bean.getError_code();
-                    if (Error_code == 0) {                     //返回值为零，就是打卡识别成功
-
-                        double score = Result_bean.getResult().getUser_list().get(0).getScore();   //一层层进入，获取到score
-
-                        String user = Result_bean.getResult().getUser_list().get(0).getUser_id();   //获取用户名
-
-                     //   System.out.println("分数：" + score);
-                        if (score >= 78.0) {                                  //分数大于78.0分，判断为同一个人，提示打卡成功
-
-                            SQLiteDatabase db;
-                            MyHelper ggg = new MyHelper(ClockInActivity.this);
-                            db = ggg.getWritableDatabase();
-                            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-                            //  System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
-                            ggg.Insert_two(db, "time_id", df.format(new Date()), user);
-
-                            BackTool.SendHttpInsert(user,df.format(new Date()),2);
-
-                            Looper.prepare();
-                            Toast.makeText(ClockInActivity.this, "打卡成功！", Toast.LENGTH_LONG).show();
-                            String s="checksuccessfull";
-                            BLEManager.getInstance().send(s.getBytes());
-                            Looper.loop();
-                        } else {
-                            Looper.prepare();
-                            Toast.makeText(ClockInActivity.this, "打卡失败！照片不在人脸库", Toast.LENGTH_LONG).show();
-                            Looper.loop();
-                        }
-                    } else {
-                        String error_message = "打卡失败：" + Result_bean.getError_msg();
-                     //   System.out.println("xixixixixixi" + error_message);
-
-                        Looper.prepare();
-                        Toast.makeText(ClockInActivity.this, error_message, Toast.LENGTH_LONG).show();
-                        Looper.loop();
-                    }
 
                 } catch (Exception e) {
                     Log.i("错误", "hahaha");

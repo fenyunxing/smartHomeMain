@@ -49,7 +49,7 @@ public class DeleteActivity extends AppCompatActivity implements View.OnClickLis
                     map.put("user_id", S_user);
                     String param = GsonUtils.toJson(map);
                     // 注意这里仅为了简化编码每一次请求都去获取access_token，线上环境access_token有过期时间， 客户端可自行缓存，过期后重新获取。
-                    String accessToken = "24.0ee082c20fc94f47c01a9e73a023af58.2592000.1553952629.282335-15236904";
+                    String accessToken = "24.437b5fd5a336b2aff66ea373ace6ffcb.2592000.1592449188.282335-15236904";
 
                     String result = HttpUtil.post(url, accessToken, "application/json", param);
                     System.out.println(result);

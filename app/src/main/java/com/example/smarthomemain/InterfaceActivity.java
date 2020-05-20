@@ -14,6 +14,7 @@ import com.blesdk.executor.handler.BLEManager;
 import com.example.a11630.face_new.FaceDoorMainActivity;
 import com.example.a12053.voicectroller.VoiceCtrollerMainActivity;
 import com.example.mybuletoothble.BuleToothMainActivity;
+import com.example.mygesturerecognizetest.GuestureRecongnizeMainActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,11 +25,11 @@ public class InterfaceActivity extends AppCompatActivity {
     //定义图标数组
     private int[] imageRes = { R.drawable.buletooth, R.drawable.curtain,
             R.drawable.facedoor, R.drawable.fan, R.drawable.humiture3, R.drawable.lamp,
-            R.drawable.pic9, R.drawable.pic12, R.drawable.remote,
+            R.drawable.guesture_icon, R.drawable.pic12, R.drawable.remote,
             R.drawable.tvplay, R.drawable.voice, R.drawable.pic12 };
     //定义标题数组
     private String[] itemName = { "蓝牙 ", "窗帘", "人脸门禁", "风扇", "环境监测",
-            "电灯", "心理测评", "生活量表", "基本遥控", "电视", "语音控制", "综合查询" };
+            "电灯", "手势识别", "生活量表", "基本遥控", "电视", "语音控制", "综合查询" };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +85,7 @@ public class InterfaceActivity extends AppCompatActivity {
                 case 5:
                     break;
                 case 6:
+                    startActivity(new Intent(InterfaceActivity.this, GuestureRecongnizeMainActivity.class));
                     break;
                 case 7:
                     break;

@@ -1,2 +1,2 @@
-include ':app', ':blesdk', ':MyBuleToothBle', ':voiceCtroller', ':voicectrollermodule', ':FaceDoorModule'
+include ':app', ':blesdk', ':MyBuleToothBle', ':voiceCtroller', ':voicectrollermodule', ':FaceDoorModule', ':guestureRecognizeModule'
 rootProject.name='smartHomeMain'

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/search"
+    android:background="@drawable/inquire_bg"
     android:orientation="vertical">
 
     <LinearLayout
@@ -76,8 +76,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:textColor="@color/btn_text_color"
-            android:textSize="15sp" />
+            android:textStyle="bold"
+            android:textColor="@color/text_color"
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
