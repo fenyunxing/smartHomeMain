@@ -13,6 +13,7 @@ import android.widget.SimpleAdapter;
 import com.blesdk.executor.handler.BLEManager;
 import com.example.a11630.face_new.FaceDoorMainActivity;
 import com.example.a12053.voicectroller.VoiceCtrollerMainActivity;
+import com.example.fancontrolmodule.FanControlMainActivity;
 import com.example.mybuletoothble.BuleToothMainActivity;
 import com.example.mygesturerecognizetest.GuestureRecongnizeMainActivity;
 
@@ -65,7 +66,7 @@ public class InterfaceActivity extends AppCompatActivity {
 //            Toast.makeText(getApplicationContext(), position + "",
 //                    Toast.LENGTH_SHORT).show();
             switch (position) {
-                case 0:
+                case 0:  //蓝牙界面跳转
                     Log.i("item点击测试: ","item1");
                     startActivity(new Intent(InterfaceActivity.this, BuleToothMainActivity.class));
                     break;
@@ -74,17 +75,18 @@ public class InterfaceActivity extends AppCompatActivity {
                    // String sendtext="hello";
                    // BLEManager.getInstance().send(sendtext.getBytes());
                     break;
-                case 2:
+                case 2:  //人脸门禁界面跳转
                     Log.i("item点击测试: ","item3");
                     startActivity(new Intent(InterfaceActivity.this, FaceDoorMainActivity.class));
                     break;
-                case 3:
+                case 3:  //风扇界面
+                    startActivity(new Intent(InterfaceActivity.this, FanControlMainActivity.class));
                     break;
                 case 4:
                     break;
                 case 5:
                     break;
-                case 6:
+                case 6:  //手势识别界面
                     startActivity(new Intent(InterfaceActivity.this, GuestureRecongnizeMainActivity.class));
                     break;
                 case 7:

@@ -30,5 +30,6 @@ dependencies {
     implementation project(path: ':voicectrollermodule')
     implementation project(path: ':FaceDoorModule')
     implementation project(path: ':guestureRecognizeModule')
+    implementation project(path: ':fancontrolmodule')
 
 }

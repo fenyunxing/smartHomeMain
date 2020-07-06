@@ -234,7 +234,7 @@ public class ClockInActivity extends AppCompatActivity implements View.OnClickLi
 
                             Looper.prepare();
                             Toast.makeText(ClockInActivity.this, "打卡成功！", Toast.LENGTH_LONG).show();
-                            String s="checksuccessfull";
+                            String s="a";  //开门指令
                             BLEManager.getInstance().send(s.getBytes());
                             Looper.loop();
                         } else {
