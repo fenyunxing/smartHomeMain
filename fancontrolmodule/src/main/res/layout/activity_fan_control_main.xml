@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fan_module_background"
+    tools:context=".FanControlMainActivity">
+
+    <!--顶部标题栏-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        >
+
+        <TextView
+            android:text="智能风扇控制平台"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="#48EBEB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <!--顶部标题栏end-->
+
+    <!--顶部开关布局的父容器-->
+    <LinearLayout
+        android:orientation="horizontal"
+       android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+       <!--顶部开关布局-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/fan_btn"
+                android:background="@drawable/imgbtn_back_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="3dp"
+                android:text="开关"
+                android:textColor="@color/textcolor_black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+        <!--顶部开关布局结束-->
+    </LinearLayout>
+    <!--顶部开关布局的父容器结束-->
+<!--   <ImageButton-->
+<!--       android:src="@drawable/ic_number3"-->
+<!--       android:background="#00000000"-->
+<!--       android:layout_width="wrap_content"-->
+<!--       android:layout_height="wrap_content"/>-->
+
+    <!--状态显示烂-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="15dp"
+        >
+        <!--定时显示-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="定时时间"
+                android:textColor="@color/textcolor_black"
+                android:textSize="30sp"
+                />
+            <!--显示小时-->
+            <TextView
+                android:id="@+id/hour_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="00"
+                android:textColor="@color/textcolor_red"
+                android:textSize="40sp"
+                />
+
+            <!--显示冒号-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="@color/textcolor_red"
+                android:textSize="40sp"
+                />
+
+            <!--显示分钟-->
+            <TextView
+                android:id="@+id/minute_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textColor="@color/textcolor_red"
+                android:textSize="40sp"
+                />
+
+            <!--显示冒号-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="@color/textcolor_red"
+                android:textSize="40sp"
+                />
+            <!--显示秒-->
+            <TextView
+                android:id="@+id/second_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textColor="@color/textcolor_red"
+                android:textSize="40sp"
+                />
+
+        </LinearLayout>
+        <!--定时显示end-->
+
+        <!--定时控制-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--第一个按钮-->
+            <ImageButton
+                android:src="@drawable/reduce_btn_back_change"
+                android:background="#00000000"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <!--第2个按钮-->
+            <ImageButton
+                android:src="@drawable/clock_btn_back_change"
+                android:background="#00000000"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <!--第3个按钮-->
+            <ImageButton
+                android:src="@drawable/add_btn_back_change"
+                android:background="#00000000"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+
+        </LinearLayout>
+        <!--定时控制end-->
+
+    </LinearLayout>
+    <!--状态显示烂end-->
+
+    <!--功能控制区-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <!--第一行按钮-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            >
+            <!--第一个布局-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                >
+                <ImageButton
+                    android:src="@drawable/hand_control_back_change"
+                    android:background="#00000000"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="手动"
+                    android:textColor="@color/textcolor_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!--第2个布局-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                >
+                <ImageButton
+                    android:src="@drawable/auto_btn_back_change"
+                    android:background="#00000000"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="自动"
+                    android:textColor="@color/textcolor_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!--第3个布局-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                >
+                <ImageButton
+                    android:src="@drawable/sleep_btn_back_change"
+                    android:background="#00000000"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="休眠"
+                    android:textColor="@color/textcolor_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--第2行按钮-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            >
+            <!--第一个布局-->
+           <LinearLayout
+               android:orientation="vertical"
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="1"
+               android:gravity="center_horizontal"
+               >
+               <ImageButton
+                   android:src="@drawable/number1_back_change"
+                   android:background="#00000000"
+                   android:layout_weight="1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+
+               <TextView
+                   android:text="第一档"
+                   android:textColor="@color/textcolor_black"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+           </LinearLayout>
+
+            <!--第2个布局-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                >
+                <ImageButton
+                    android:src="@drawable/number2_back_change"
+                    android:background="#00000000"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="第二档"
+                    android:textColor="@color/textcolor_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!--第3个布局-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                >
+                <ImageButton
+                    android:src="@drawable/number3_back_change"
+                    android:background="#00000000"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="第三档"
+                    android:textColor="@color/textcolor_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--第3行按钮-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="2dp"
+            >
+            <!--第一个布局-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                >
+                <ImageButton
+                    android:src="@drawable/number4_back_change"
+                    android:background="#00000000"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="第四档"
+                    android:textColor="@color/textcolor_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!--第2个布局-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                >
+                <ImageButton
+                    android:src="@drawable/number5_back_change"
+                    android:background="#00000000"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="第五档"
+                    android:textColor="@color/textcolor_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!--第3个布局-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                >
+                <ImageButton
+                    android:src="@drawable/number6_back_change"
+                    android:background="#00000000"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="第六档"
+                    android:textColor="@color/textcolor_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <!--第三行end-->
+    </LinearLayout>
+    <!--功能控制区end-->
+
+</LinearLayout>
