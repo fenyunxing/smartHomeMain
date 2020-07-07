@@ -15,7 +15,17 @@ public class FanControlMainActivity extends AppCompatActivity implements View.On
 ImageButton mReduce_btn;
 ImageButton mAdd_btn;
 ImageButton mFan_btn;
+ImageButton mNumber1_imbtn;
+ImageButton mNumber2_imbtn;
+ImageButton mNumber3_imbtn;
+ImageButton mNumber4_imbtn;
+ImageButton mNumber5_imbtn;
+ImageButton mNumber6_imbtn;
+ImageButton mHand_control_imbtn;
+ImageButton mAuto_imbtn;
+ImageButton mSleep_imbtn;
 boolean fanFlag=false;
+int modeFlag=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,19 +38,40 @@ boolean fanFlag=false;
         mReduce_btn=(ImageButton)findViewById(R.id.reduce_imbtn);
         mAdd_btn=(ImageButton)findViewById(R.id.add_imbtn);
         mFan_btn=(ImageButton)findViewById(R.id.fan_btn);
+        mNumber1_imbtn=(ImageButton)findViewById(R.id.number1_imbtn);
+        mNumber2_imbtn=(ImageButton)findViewById(R.id.number2_imbtn);
+        mNumber3_imbtn=(ImageButton)findViewById(R.id.number3_imbtn);
+        mNumber4_imbtn=(ImageButton)findViewById(R.id.number4_imbtn);
+        mNumber5_imbtn=(ImageButton)findViewById(R.id.number5_imbtn);
+        mNumber6_imbtn=(ImageButton)findViewById(R.id.number6_imbtn);
+        mHand_control_imbtn=(ImageButton)findViewById(R.id.hand_control_imbtn);
+        mAuto_imbtn=(ImageButton)findViewById(R.id.auto_imbtn);
+        mSleep_imbtn=(ImageButton)findViewById(R.id.sleep_imbtn);
+        //设置按键监听
+        mNumber1_imbtn.setOnClickListener(this);
+        mNumber2_imbtn.setOnClickListener(this);
+        mNumber3_imbtn.setOnClickListener(this);
+        mNumber4_imbtn.setOnClickListener(this);
+        mNumber5_imbtn.setOnClickListener(this);
+        mNumber6_imbtn.setOnClickListener(this);
 
         mFan_btn.setOnClickListener(this);
         mReduce_btn.setOnClickListener(this);
         mAdd_btn.setOnClickListener(this);
+
+        mHand_control_imbtn.setOnClickListener(this);
+        mAuto_imbtn.setOnClickListener(this);
+        mSleep_imbtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.reduce_imbtn){  //判断是否按下减
-
+          //逻辑代码
         } else if(v.getId()==R.id.add_imbtn){ //判断是否按下加
-
+            //逻辑代码
         } else if(v.getId()==R.id.fan_btn){
+            //风扇启动和关闭
             if(fanFlag){
                 String s="f";
                 BLEManager.getInstance().send(s.getBytes());
@@ -51,7 +82,100 @@ boolean fanFlag=false;
                 fanFlag=true;
             }
 
+        } else if(v.getId()==R.id.number1_imbtn && modeFlag==1){
+            resetNumberImage();
+            mNumber1_imbtn.setImageResource(R.drawable.ic_number1_click);
+
+            //发送1档指令
+            String s1="1";
+            BLEManager.getInstance().send(s1.getBytes());
+
+        } else if(v.getId()==R.id.number2_imbtn && modeFlag==1){
+            resetNumberImage();
+            mNumber2_imbtn.setImageResource(R.drawable.ic_number2_click);
+
+            //发送2档指令
+            String  s ="2";
+            BLEManager.getInstance().send(s.getBytes());
+
+        }else if(v.getId()==R.id.number3_imbtn && modeFlag==1){
+            resetNumberImage();
+            mNumber3_imbtn.setImageResource(R.drawable.ic_number3_click);
+
+            //发送3档指令
+             String s="3";
+              BLEManager.getInstance().send(s.getBytes());
+
+        }else if(v.getId()==R.id.number4_imbtn && modeFlag==1){
+            resetNumberImage();
+            mNumber4_imbtn.setImageResource(R.drawable.ic_number4_click);
+
+            //发送4档指令
+            String s="4";
+            BLEManager.getInstance().send(s.getBytes());
+
+        }else if(v.getId()==R.id.number5_imbtn && modeFlag==1){
+            resetNumberImage();
+            mNumber5_imbtn.setImageResource(R.drawable.ic_number5_click);
+
+            //发送5档指令
+             String s="5";
+             BLEManager.getInstance().send(s.getBytes());
+
+        }else if(v.getId()==R.id.number6_imbtn && modeFlag==1){
+            resetNumberImage();
+            mNumber6_imbtn.setImageResource(R.drawable.ic_number6_click);
+
+            //发送6档指令
+             String s="6";
+             BLEManager.getInstance().send(s.getBytes());
+
+        } else if(v.getId()==R.id.hand_control_imbtn){ //手动控制
+            resetModeImage();
+            mHand_control_imbtn.setImageResource(R.drawable.ic_hand_control_click);
+            modeFlag=1;
+            //发送1档指令
+            // String s="1";
+            //  BLEManager.getInstance().send(s.getBytes());
+
+        } else if(v.getId()==R.id.auto_imbtn){
+            resetModeImage();
+            resetNumberImage();
+            mAuto_imbtn.setImageResource(R.drawable.ic_auto_btn_click);
+            modeFlag=2;
+            //发送1档指令
+            // String s="1";
+            //  BLEManager.getInstance().send(s.getBytes());
+
+        } else if(v.getId()==R.id.sleep_imbtn){
+            resetModeImage();
+            resetNumberImage();
+            mSleep_imbtn.setImageResource(R.drawable.ic_sleep_btn_click);
+            modeFlag=3;
+            //发送1档指令
+            // String s="1";
+            //  BLEManager.getInstance().send(s.getBytes());
+
         }
+
+
+
+
+    }
+
+    private void resetModeImage() {
+        mHand_control_imbtn.setImageResource(R.drawable.ic_hand_control);
+        mAuto_imbtn.setImageResource(R.drawable.ic_auto_btn);
+        mSleep_imbtn.setImageResource(R.drawable.ic_sleep_btn);
+    }
+
+    private void resetNumberImage() {
+        mNumber1_imbtn.setImageResource(R.drawable.ic_number1);
+        mNumber2_imbtn.setImageResource(R.drawable.ic_number2);
+        mNumber3_imbtn.setImageResource(R.drawable.ic_number3);
+        mNumber4_imbtn.setImageResource(R.drawable.ic_number4);
+        mNumber5_imbtn.setImageResource(R.drawable.ic_number5);
+        mNumber6_imbtn.setImageResource(R.drawable.ic_number6);
     }
 
 //    private Handler mHandler = new Handler(new Handler.Callback() {

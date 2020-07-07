@@ -164,7 +164,8 @@
                 android:gravity="center_horizontal"
                 >
                 <ImageButton
-                    android:src="@drawable/hand_control_back_change"
+                    android:id="@+id/hand_control_imbtn"
+                    android:src="@drawable/ic_hand_control_click"
                     android:background="#00000000"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
@@ -186,7 +187,8 @@
                 android:gravity="center_horizontal"
                 >
                 <ImageButton
-                    android:src="@drawable/auto_btn_back_change"
+                    android:id="@+id/auto_imbtn"
+                    android:src="@drawable/ic_auto_btn"
                     android:background="#00000000"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
@@ -208,7 +210,8 @@
                 android:gravity="center_horizontal"
                 >
                 <ImageButton
-                    android:src="@drawable/sleep_btn_back_change"
+                    android:id="@+id/sleep_imbtn"
+                    android:src="@drawable/ic_sleep_btn"
                     android:background="#00000000"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
@@ -240,7 +243,8 @@
                android:gravity="center_horizontal"
                >
                <ImageButton
-                   android:src="@drawable/number1_back_change"
+                   android:id="@+id/number1_imbtn"
+                   android:src="@drawable/ic_number1"
                    android:background="#00000000"
                    android:layout_weight="1"
                    android:layout_width="wrap_content"
@@ -262,7 +266,8 @@
                 android:gravity="center_horizontal"
                 >
                 <ImageButton
-                    android:src="@drawable/number2_back_change"
+                    android:id="@+id/number2_imbtn"
+                    android:src="@drawable/ic_number2"
                     android:background="#00000000"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
@@ -284,7 +289,8 @@
                 android:gravity="center_horizontal"
                 >
                 <ImageButton
-                    android:src="@drawable/number3_back_change"
+                    android:id="@+id/number3_imbtn"
+                    android:src="@drawable/ic_number3"
                     android:background="#00000000"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
@@ -316,7 +322,8 @@
                 android:gravity="center_horizontal"
                 >
                 <ImageButton
-                    android:src="@drawable/number4_back_change"
+                    android:id="@+id/number4_imbtn"
+                    android:src="@drawable/ic_number4"
                     android:background="#00000000"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
@@ -338,7 +345,8 @@
                 android:gravity="center_horizontal"
                 >
                 <ImageButton
-                    android:src="@drawable/number5_back_change"
+                    android:id="@+id/number5_imbtn"
+                    android:src="@drawable/ic_number5"
                     android:background="#00000000"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
@@ -360,7 +368,8 @@
                 android:gravity="center_horizontal"
                 >
                 <ImageButton
-                    android:src="@drawable/number6_back_change"
+                    android:id="@+id/number6_imbtn"
+                    android:src="@drawable/ic_number6"
                     android:background="#00000000"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
