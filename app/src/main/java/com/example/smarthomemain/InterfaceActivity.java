@@ -83,6 +83,7 @@ public class InterfaceActivity extends AppCompatActivity {
                     startActivity(new Intent(InterfaceActivity.this, FanControlMainActivity.class));
                     break;
                 case 4:
+                    startActivity(new Intent(InterfaceActivity.this, EvirnmentMainActivity.class));
                     break;
                 case 5:
                     break;

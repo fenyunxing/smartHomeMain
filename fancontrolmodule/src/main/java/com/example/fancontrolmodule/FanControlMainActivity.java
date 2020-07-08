@@ -135,8 +135,8 @@ int modeFlag=1;
             mHand_control_imbtn.setImageResource(R.drawable.ic_hand_control_click);
             modeFlag=1;
             //发送1档指令
-            // String s="1";
-            //  BLEManager.getInstance().send(s.getBytes());
+             String s="h";
+             BLEManager.getInstance().send(s.getBytes());
 
         } else if(v.getId()==R.id.auto_imbtn){
             resetModeImage();
@@ -144,8 +144,8 @@ int modeFlag=1;
             mAuto_imbtn.setImageResource(R.drawable.ic_auto_btn_click);
             modeFlag=2;
             //发送1档指令
-            // String s="1";
-            //  BLEManager.getInstance().send(s.getBytes());
+            String s="g";
+            BLEManager.getInstance().send(s.getBytes());
 
         } else if(v.getId()==R.id.sleep_imbtn){
             resetModeImage();
