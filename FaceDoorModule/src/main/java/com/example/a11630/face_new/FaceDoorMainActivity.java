@@ -60,9 +60,7 @@ public class FaceDoorMainActivity extends AppCompatActivity implements View.OnCl
             //删除界面跳转
             startActivity(new Intent(this, DeleteActivity.class));
         }else{
-            //退出程序
-            System system = null;
-            system.exit(0);
+            finish();
         }
     }
     @RequiresApi(api = Build.VERSION_CODES.M)

@@ -86,6 +86,7 @@ public class InterfaceActivity extends AppCompatActivity {
                     startActivity(new Intent(InterfaceActivity.this, EvirnmentMainActivity.class));
                     break;
                 case 5:
+                    startActivity(new Intent(InterfaceActivity.this, LampMainActivity.class));
                     break;
                 case 6:  //手势识别界面
                     startActivity(new Intent(InterfaceActivity.this, GuestureRecongnizeMainActivity.class));

@@ -240,6 +240,8 @@ public class ClockInActivity extends AppCompatActivity implements View.OnClickLi
                         } else {
                             Looper.prepare();
                             Toast.makeText(ClockInActivity.this, "打卡失败！照片不在人脸库", Toast.LENGTH_LONG).show();
+                            String s="b";  //guan门指令
+                            BLEManager.getInstance().send(s.getBytes());
                             Looper.loop();
                         }
                     } else {
@@ -248,6 +250,8 @@ public class ClockInActivity extends AppCompatActivity implements View.OnClickLi
 
                         Looper.prepare();
                         Toast.makeText(ClockInActivity.this, error_message, Toast.LENGTH_LONG).show();
+                        String s="b";  //guan门指令
+                        BLEManager.getInstance().send(s.getBytes());
                         Looper.loop();
                     }
 
