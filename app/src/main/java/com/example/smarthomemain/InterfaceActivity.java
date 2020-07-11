@@ -94,6 +94,7 @@ public class InterfaceActivity extends AppCompatActivity {
                 case 7:
                     break;
                 case 8:
+                    startActivity(new Intent(InterfaceActivity.this, RemoterMainActivity.class));
                     break;
                 case 9:
                     break;

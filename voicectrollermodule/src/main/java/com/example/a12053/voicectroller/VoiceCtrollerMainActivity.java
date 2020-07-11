@@ -109,15 +109,15 @@ public class VoiceCtrollerMainActivity extends Activity implements OnClickListen
                 //Log.i("文字测试",resultBuffer.toString());
                 try {
                     String s=resultBuffer.toString().substring(0,resultBuffer.toString().length()-1);
-                    BLEManager.getInstance().send(resultBuffer.toString().getBytes("UTF-8"));
-                    e_text.setText(s);
-                    e_text.requestFocus();//获取焦点
-                    e_text.setSelection(resultBuffer.toString().length());//将光标定位到文字最后，以便修改
+                    BLEManager.getInstance().send(s.getBytes("UTF-8"));
+
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
 
-
+                e_text.setText(resultBuffer.toString());
+                e_text.requestFocus();//获取焦点
+                e_text.setSelection(resultBuffer.toString().length());//将光标定位到文字最后，以便修改
             }
 
             @Override

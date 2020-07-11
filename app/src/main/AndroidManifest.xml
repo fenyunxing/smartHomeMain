@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".LampMainActivity"></activity>
+        <activity android:name=".RemoterMainActivity"></activity>
+        <activity android:name=".LampMainActivity" />
         <activity android:name=".EvirnmentMainActivity" />
         <activity android:name=".InterfaceActivity">
             <intent-filter>
