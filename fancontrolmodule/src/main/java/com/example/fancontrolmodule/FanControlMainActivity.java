@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -24,8 +25,12 @@ ImageButton mNumber6_imbtn;
 ImageButton mHand_control_imbtn;
 ImageButton mAuto_imbtn;
 ImageButton mSleep_imbtn;
+EditText msetclock_et;
+ImageButton msetclock_imbtn;
 boolean fanFlag=false;
+int clockModeFlag=1;
 int modeFlag=1;
+private String setclock_val=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,8 @@ int modeFlag=1;
         mHand_control_imbtn=(ImageButton)findViewById(R.id.hand_control_imbtn);
         mAuto_imbtn=(ImageButton)findViewById(R.id.auto_imbtn);
         mSleep_imbtn=(ImageButton)findViewById(R.id.sleep_imbtn);
+        msetclock_et=(EditText)findViewById(R.id.setclock_et);
+        msetclock_imbtn=(ImageButton) findViewById(R.id.setclock_imbtn);
         //设置按键监听
         mNumber1_imbtn.setOnClickListener(this);
         mNumber2_imbtn.setOnClickListener(this);
@@ -58,6 +65,7 @@ int modeFlag=1;
         mFan_btn.setOnClickListener(this);
         mReduce_btn.setOnClickListener(this);
         mAdd_btn.setOnClickListener(this);
+        msetclock_imbtn.setOnClickListener(this);
 
         mHand_control_imbtn.setOnClickListener(this);
         mAuto_imbtn.setOnClickListener(this);
@@ -68,8 +76,21 @@ int modeFlag=1;
     public void onClick(View v) {
         if(v.getId()==R.id.reduce_imbtn){  //判断是否按下减
           //逻辑代码
+
         } else if(v.getId()==R.id.add_imbtn){ //判断是否按下加
             //逻辑代码
+        }else if(v.getId()==R.id.setclock_imbtn){ //设置闹钟
+            setclock_val=msetclock_et.getText().toString();  //获取编辑框内容
+            int val=Integer.parseInt(setclock_val);  //转成int
+            //开启一个定时任务
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //do something
+
+                }
+            }, val);    //延时1s执行
+
         } else if(v.getId()==R.id.fan_btn){
             //风扇启动和关闭
             if(fanFlag){
